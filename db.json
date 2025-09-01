@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": "a3e7",
+      "email": "tima@gmail.com",
+      "name": "tima",
+      "surname": "safarov",
+      "password": "tima2008"
+    },
+    {
+      "id": "e805",
+      "email": "max@gmail.com",
+      "name": "max",
+      "surname": "maximov",
+      "password": "max"
+    }
+  ],
+  "wallets": [
+    {
+      "id": "79e0",
+      "name": "Visa",
+      "currency": "USD"
+    },
+    {
+      "id": "7b77",
+      "name": "Humo",
+      "currency": "UZS"
+    },
+    {
+      "id": "2dad",
+      "name": "UzCard",
+      "currency": "RUB"
+    }
+  ]
+}
