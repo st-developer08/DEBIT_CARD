@@ -67,7 +67,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 function showError(input, message) {
-  input.style.border = "2px solid red";
+  input.style.border = "1px solid red";
 
   const oldError = input.parentNode.querySelector(".error-msg");
   if (oldError) oldError.remove();

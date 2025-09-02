@@ -13,6 +13,12 @@
       "name": "max",
       "surname": "maximov",
       "password": "max"
+    },
+    {
+      "id": "de1b",
+      "name": "Tima",
+      "email": "st@gmail.com",
+      "password": "tima2008"
     }
   ],
   "wallets": [

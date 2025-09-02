@@ -3,10 +3,10 @@ import { showModal } from "./utils.js";
 
 const API = "http://localhost:8080/users";
 
-const form = document.forms.signUp;
+const form = document.forms.signUp; 
 const usernameInput = form.querySelector('input[name="username"]');
-const emailInput = form.querySelector('input[type="email"]');
-const passwordInput = form.querySelector('input[type="password"]');
+const emailInput = form.querySelector('input[name="email"]');
+const passwordInput = form.querySelector('input[name="password"]');
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -15,33 +15,14 @@ form.addEventListener("submit", async (e) => {
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
 
-  [usernameInput, emailInput, passwordInput].forEach((input) => {
-    input.style.border = "1px solid #ccc";
-    const err = input.nextElementSibling;
-    if (err && err.classList.contains("error-msg")) {
-      err.remove();
-    }
-  });
-
-  let hasError = false;
-
-  if (!username) {
-    showError(usernameInput, "Введите логин");
-    hasError = true;
+  if (!username || !email || !password) {
+    if (!username) showError(usernameInput, "Введите имя");
+    if (!email) showError(emailInput, "Введите email");
+    if (!password) showError(passwordInput, "Введите пароль");
+    return;
   }
-  if (!email) {
-    showError(emailInput, "Введите email");
-    hasError = true;
-  }
-  if (!password) {
-    showError(passwordInput, "Введите пароль");
-    hasError = true;
-  }
-
-  if (hasError) return;
 
   try {
-    // ✅ Проверка, существует ли email
     const existingUser = await axios.get(API, { params: { email } });
     if (existingUser.data.length > 0) {
       showError(emailInput, "Этот email уже зарегистрирован");
@@ -63,7 +44,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 function showError(input, message) {
-  input.style.border = "2px solid red";
+  input.style.border = "1px solid red";
 
   const oldError = input.parentNode.querySelector(".error-msg");
   if (oldError) oldError.remove();
