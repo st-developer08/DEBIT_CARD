@@ -1,5 +1,4 @@
 import axios from "axios";
-import { showModal } from "./utils.js";
 
 const API = "http://localhost:8080/users";
 
