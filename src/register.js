@@ -61,3 +61,10 @@ function showError(input, message) {
 
   input.insertAdjacentElement("afterend", span);
 }
+
+
+const userEmail = localStorage.getItem("userEmail");
+
+if (userEmail) {
+  window.location.href = "./home.html";
+}

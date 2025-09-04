@@ -42,6 +42,80 @@
       "id": "2dad",
       "name": "UzCard",
       "currency": "RUB"
+    },
+    {
+      "id": "b96f",
+      "name": "Tima",
+      "currency": "EUR",
+      "ownerEmail": "tima@gmail.com"
+    },
+    {
+      "id": "dcb0",
+      "name": "usa",
+      "currency": "TRY",
+      "ownerEmail": "tima@gmail.com"
+    },
+    {
+      "id": "ab01",
+      "name": "Mastercard",
+      "currency": "RUB",
+      "ownerEmail": "tima@gmail.com"
+    },
+    {
+      "id": "de69",
+      "name": "Tinkoff",
+      "currency": "EUR",
+      "ownerEmail": "tima@gmail.com"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "2bd6",
+      "wallet": "Tima",
+      "category": "usa",
+      "amount": "10000",
+      "ownerEmail": "tima@gmail.com",
+      "date": "2025-09-03T16:08:27.953Z"
+    },
+    {
+      "id": "8148",
+      "wallet": "Humo",
+      "category": "Еда",
+      "amount": "3000",
+      "ownerEmail": "tima@gmail.com",
+      "date": "2025-09-03T16:29:45.834Z"
+    },
+    {
+      "id": "04f7",
+      "wallet": "Usa",
+      "category": "213",
+      "amount": "123213213",
+      "ownerEmail": "tima@gmail.com",
+      "date": "2025-09-03T16:29:56.552Z"
+    },
+    {
+      "id": "6e5d",
+      "wallet": "Tima",
+      "category": "Машина",
+      "amount": "22090980",
+      "ownerEmail": "tima@gmail.com",
+      "date": "2025-09-03T16:33:25.331Z"
+    },
+    {
+      "id": "ade7",
+      "wallet": "Humo",
+      "category": "Истребитель",
+      "amount": "10000000000000",
+      "ownerEmail": "tima@gmail.com",
+      "date": "2025-09-04T09:44:07.593Z"
+    },
+    {
+      "id": "fa58",
+      "wallet": "Mastercard",
+      "category": "Кроссовки",
+      "amount": "123123123123",
+      "ownerEmail": "tima@gmail.com",
+      "date": "2025-09-04T09:53:36.466Z"
     }
   ]
 }

@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const API = "http://localhost:8080/wallets"; 
+const API = "http://localhost:8080/wallets";
+
 const gradients = [
   "linear-gradient(84.37deg, #D7816A 2.27%, #BD4F6C 92.26%)",
   "linear-gradient(84.37deg, #5F0A87 2.27%, #A4508B 92.26%)",
   "linear-gradient(84.37deg, #380036 2.27%, #0CBABA 92.26%)",
-  "linear-gradient(84.37deg, #20BF55 2.27%, #01BAEF 92.26%)"
+  "linear-gradient(84.37deg, #20BF55 2.27%, #01BAEF 92.26%)",
 ];
 
 const walletsGrid = document.getElementById("walletsGrid");
@@ -16,6 +17,13 @@ const exit = document.querySelector(".exit");
 
 const userEmail = localStorage.getItem("userEmail");
 const userName = localStorage.getItem("userName");
+
+const confirmModal = document.getElementById("confirmModal");
+const confirmText = document.getElementById("confirmText");
+const confirmYes = document.getElementById("confirmYes");
+const confirmNo = document.getElementById("confirmNo");
+
+let confirmAction = null;
 
 if (!userEmail || !userName) {
   window.location.href = "./login.html";
@@ -30,6 +38,24 @@ exit.addEventListener("click", (e) => {
   window.location.href = "./login.html";
 });
 
+
+
+function openConfirmModal(message, onConfirm) {
+  confirmText.textContent = message;
+  confirmModal.style.display = "flex";
+  confirmAction = onConfirm;
+}
+
+confirmYes.addEventListener("click", () => {
+  if (confirmAction) confirmAction();
+  confirmModal.style.display = "none";
+});
+
+confirmNo.addEventListener("click", () => {
+  confirmModal.style.display = "none";
+});
+
+
 let walletCount = 0;
 
 function renderWallet(walletData) {
@@ -43,12 +69,23 @@ function renderWallet(walletData) {
     <span>${walletData.currency}</span>
   `;
 
+  wallet.addEventListener("dblclick", () => {
+    openConfirmModal(`Удалить кошелёк "${walletData.name}"?`, async () => {
+      try {
+        await axios.delete(`${API}/${walletData.id}`);
+        wallet.remove();
+      } catch (err) {
+        console.error("Ошибка при удалении кошелька:", err);
+      }
+    });
+  });
+
   walletsGrid.append(wallet);
 }
 
 async function loadWallets() {
   try {
-    const res = await axios.get(API);
+    const res = await axios.get(`${API}?ownerEmail=${userEmail}`);
     walletsGrid.innerHTML = "";
     walletCount = 0;
 
@@ -81,7 +118,7 @@ walletForm.addEventListener("submit", async (e) => {
   if (!name || !currency) return;
 
   try {
-    const res = await axios.post(API, { name, currency });
+    const res = await axios.post(API, { name, currency, ownerEmail: userEmail });
     renderWallet(res.data);
 
     walletForm.reset();

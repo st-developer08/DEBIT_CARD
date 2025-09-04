@@ -12,8 +12,7 @@ body.auth-page {
   align-items: center;
 
 
-  background: linear-gradient(270deg, #20BF55, #01BAEF, #ff416c, #ff4b2b, #667eea, #764ba2);
-  background-size: 1200% 1200%;
+  background: url("../public/img/ftuy4.jpg") no-repeat center center / cover;
 
  
   animation: gradientFlow 20s ease infinite;
@@ -28,6 +27,19 @@ body.auth-page {
 .container {
   width: 1140px;
   margin: 0 auto;
+}
+
+body.auth-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -143,6 +155,20 @@ body.auth-page {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.card {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .card .signup::after,.card .signin::after {
   content: "";
   position: absolute;
@@ -161,6 +187,13 @@ body.auth-page {
 
 .card .signup:hover::after,.card .signin:hover::after {
   width: 100%;
+}
+
+.card input:focus {
+  border: 1px solid #3b82f6;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px #3b82f6, 0 0 3px rgba(37, 99, 135, 0.6);
+  color: black;
 }
 
 

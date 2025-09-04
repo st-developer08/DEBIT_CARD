@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Мои кошельки</title>
-  <link rel="stylesheet" href="./src/home.css" />
-</head>
-<body>
-  <header class="header">
-    <div class="header-menu">
-      <a class="home" href="./home.html">Главная</a>
-      <a class="wallets" href="./wallets.html">Мои кошельки</a>
-      <a class="transactions" href="#">Мои транзакции</a>
-    </div>
-    <div class="header-about">
-      <a class="user-email" href="#">user@email.com</a>
-      <a class="exit" href="#"><img src="./public/img/exit-svg.png" alt="Выход" /></a>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мои кошельки</title>
+    <link rel="stylesheet" href="./public/font/stylesheet.css" />
+    <link rel="stylesheet" href="./src/home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-menu">
+        <a class="home" href="./home.html">Главная</a>
+        <a class="wallets" href="./wallets.html">Мои кошельки</a>
+        <a class="transactions" href="./transactions.html">Мои транзакции</a>
+      </div>
+      <div class="header-about">
+        <a class="user-email" href="#">user@email.com</a>
+        <a class="exit" href="#"
+          ><img src="./public/img/exit-svg.png" alt="Выход"
+        /></a>
+      </div>
+    </header>
 
-  <section class="my-wallets">
-    <div class="container">
-      <h2>Мои кошельки</h2>
-      <div class="wallets-grid" id="walletsGrid"></div>
-      <button id="addWallet" class="add-wallet-btn">Добавить кошелёк</button>
-    </div>
-  </section>
+    <section class="my-wallets">
+      <div class="container">
+        <h2>Мои кошельки</h2>
+        <div class="wallets-grid" id="walletsGrid"></div>
+        <button id="addWallet" class="add-wallet-btn">Добавить кошелёк</button>
+      </div>
+    </section>
 
-  <div class="modal" id="walletModal">
-    <div class="modal-content">
-      <h2>Добавить кошелек</h2>
-      <form id="walletForm">
-        <input type="text" name="name" placeholder="Имя" required />
-        <select name="currency" required>
-          <option value="" disabled selected>Выберите валюту</option>
-          <option value="USD">USD — Доллар США</option>
-          <option value="EUR">EUR — Евро</option>
-          <option value="GBP">GBP — Фунт стерлингов</option>
-          <option value="JPY">JPY — Йена</option>
-          <option value="CNY">CNY — Юань</option>
-          <option value="RUB">RUB — Рубль</option>
-          <option value="UZS">UZS — Сум</option>
-          <option value="KZT">KZT — Тенге</option>
-          <option value="TRY">TRY — Лира</option>
-          <option value="AED">AED — Дирхам</option>
-        </select>
-        <button type="submit">Добавить</button>
-      </form>
+    <div class="modal" id="walletModal">
+      <div class="modal-content">
+        <h2>Добавить кошелек</h2>
+        <form id="walletForm">
+          <input type="text" name="name" placeholder="Имя" required />
+          <select name="currency" required>
+            <option value="" disabled selected>Выберите валюту</option>
+            <option value="USD">USD — Доллар США</option>
+            <option value="EUR">EUR — Евро</option>
+            <option value="GBP">GBP — Фунт стерлингов</option>
+            <option value="JPY">JPY — Йена</option>
+            <option value="CNY">CNY — Юань</option>
+            <option value="RUB">RUB — Рубль</option>
+            <option value="UZS">UZS — Сум</option>
+            <option value="KZT">KZT — Тенге</option>
+            <option value="TRY">TRY — Лира</option>
+            <option value="AED">AED — Дирхам</option>
+          </select>
+          <button type="submit">Добавить</button>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script type="module" src="./src/wallets.js"></script>
-</body>
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h2>Подтверждение</h2>
+        <p id="confirmText">Вы уверены, что хотите удалить?</p>
+        <div class="modal-actions">
+          <button id="confirmYes">Да</button>
+          <button id="confirmNo">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/wallets.js"></script>
+  </body>
 </html>

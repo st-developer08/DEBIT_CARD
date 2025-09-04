@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="./public/font/stylesheet.css" />
     <link rel="stylesheet" href="./src/home.css" />
   </head>
   <body>
@@ -11,7 +12,7 @@
       <div class="header-menu">
         <a class="home" href="#">Главная</a>
         <a class="wallets" href="./wallets.html">Мои кошельки</a>
-        <a class="transactions" href="#">Мои транзакции</a>
+        <a class="transactions" href="./transactions.html">Мои транзакции</a>
       </div>
       <div class="header-about">
         <a class="user-email" href="#">user@email.com</a>
@@ -23,24 +24,23 @@
 
     <section class="my-wallets">
       <div class="container">
-        <h1 class="welcome">
-          Добро пожаловать, <span id="username"></span>!
-        </h1>
+        <h1 class="welcome">Добро пожаловать, <span id="username"></span>!</h1>
         <a class="userlink" href="#" id="userlink"></a>
-
         <h2>Мои кошельки</h2>
-        <div class="wallets-grid" id="walletsGrid">
-          
-        </div>
+        <div class="wallets-grid" id="walletsGrid"></div>
+        <a href="./wallets.html" id="showAllWallets" class="show-all-links"
+          >Показать все</a
+        >
+
         <button id="addWallet" class="add-wallet-btn">Добавить кошелёк</button>
       </div>
     </section>
+
     <div class="modal" id="walletModal">
       <div class="modal-content">
         <h2>Добавить кошелек</h2>
         <form id="walletForm">
           <input type="text" name="name" placeholder="Имя" required />
-
           <select name="currency" required>
             <option value="" disabled selected>Выберите валюту</option>
             <option value="USD">USD — Доллар США</option>
@@ -54,9 +54,58 @@
             <option value="TRY">TRY — Лира</option>
             <option value="AED">AED — Дирхам</option>
           </select>
-
           <button type="submit">Добавить</button>
         </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <section class="transactions">
+        <h2 class="last-tr">Последние транзакции</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Отправлено с кошелька</th>
+              <th>Категория</th>
+              <th>Сумма транзакции</th>
+              <th>Когда</th>
+            </tr>
+          </thead>
+          <tbody id="transactionsTable"></tbody>
+        </table>
+        <button id="addTransaction" class="add-wallet-btn">
+          Добавить транзакцию
+        </button>
+      </section>
+
+      <div class="modal" id="transactionModal">
+        <div class="modal-content">
+          <h2>Добавить транзакцию</h2>
+          <form id="transactionForm">
+            <select name="wallet" required>
+              <option value="" disabled selected>Выберите кошелек</option>
+            </select>
+            <input
+              type="text"
+              name="category"
+              placeholder="Категория"
+              required
+            />
+            <input type="number" name="amount" placeholder="Сумма" required />
+            <button type="submit">Добавить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h2>Подтверждение</h2>
+        <p id="confirmText">Вы уверены, что хотите удалить?</p>
+        <div class="modal-actions">
+          <button id="confirmYes">Да</button>
+          <button id="confirmNo">Отмена</button>
+        </div>
       </div>
     </div>
 

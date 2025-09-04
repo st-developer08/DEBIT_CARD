@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/font/stylesheet.css" />
+    <title>Transactions</title>
+    <link rel="stylesheet" href="./src/home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-menu">
+        <a class="home" href="./home.html">Главная</a>
+        <a class="wallets" href="./wallets.html">Мои кошельки</a>
+        <a class="transactions" href="./transactions.html">Мои транзакции</a>
+      </div>
+      <div class="header-about">
+        <a class="user-email" href="#">user@email.com</a>
+        <a class="exit" href="#"
+          ><img src="./public/img/exit-svg.png" alt=""
+        /></a>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="transactions">
+        <h2 class="last-tr">Последние транзакции</h2>
+        <a href="#">user@gmail.com</a>
+        <table>
+          <thead>
+            <th>ID</th>
+            <th>Отправлено с кошелька</th>
+            <th>Категория</th>
+            <th>Сумма транзакции</th>
+            <th>Когда</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button id="addTransaction" class="add-wallet-btn">
+          Добавить транзакцию
+        </button>
+      </section>
+    </div>
+
+    <div class="modal" id="transactionModal" style="display: none">
+      <div class="modal-content">
+        <form id="transactionForm">
+          <label>
+            <select name="wallet" required>
+              <option value="">Выберите кошелёк</option>
+            </select>
+          </label>
+          <label>
+            <input
+              type="text"
+              name="category"
+              placeholder="Категория"
+              required
+            />
+          </label>
+          <label>
+            <input
+              type="number"
+              name="amount"
+              placeholder="Ваша сума"
+              required
+            />
+          </label>
+          <button type="submit">Добавить</button>
+        </form>
+      </div>
+    </div>
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h2>Подтверждение</h2>
+        <p id="confirmText">Вы уверены, что хотите удалить?</p>
+        <div class="modal-actions">
+          <button id="confirmYes">Да</button>
+          <button id="confirmNo">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/transactions.js"></script>
+  </body>
+</html>

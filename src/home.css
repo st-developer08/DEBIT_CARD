@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Gilroy";
 }
 
 .container {
@@ -51,8 +51,7 @@
   line-height: 100%;
   letter-spacing: 0%;
   color: black;
-  margin-top: 45px;
-  margin-bottom: 15px;
+  margin-top: 25px;
 }
 
 .userlink {
@@ -66,7 +65,7 @@
 }
 
 .my-wallets h2 {
-  margin-top: 75px;
+  margin-top: 35px;
   margin-bottom: 20px;
   font-weight: 700;
   font-size: 34px;
@@ -81,13 +80,13 @@
 }
 
 .my-wallets h2::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -50%;
   width: 50%;
   height: 100%;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.5);
   transform: skewX(-25deg);
   transition: left 0.8s ease;
 }
@@ -95,8 +94,6 @@
 .my-wallets h2:hover::after {
   left: 150%;
 }
-
-
 
 @keyframes gradientMove {
   0% {
@@ -121,32 +118,43 @@
   }
 }
 
-
-.wallets-grid{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 25px;
-    margin-bottom: 20px;
+.wallets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 20px;
 }
+
 .wallet {
   width: 282px;
   height: 160px;
   padding: 20px;
-  background: linear-gradient(84.37deg, #d7816a 2.27%, #bd4f6c 92.26%);
   border-radius: 15px;
   position: relative;
+  overflow: hidden;
+  background: linear-gradient(84.37deg, #d7816a 2.27%, #bd4f6c 92.26%);
+  transition: transform 0.2s ease;
 }
 
-.show-all-links{
-    font-weight: 600;
-    font-style: Semibold;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-decoration-style: solid;
-    text-decoration-thickness: 0%;
-    text-decoration: none;
-    color: rgba(0, 71, 255, 1);
+
+
+.wallet:hover {
+  transform: translateY(-5px);
+}
+
+
+
+
+.show-all-links {
+  font-weight: 600;
+  font-style: Semibold;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-decoration-style: solid;
+  text-decoration-thickness: 0%;
+  text-decoration: none;
+  color: rgba(0, 71, 255, 1);
 }
 
 .wallet p {
@@ -170,7 +178,6 @@
 }
 
 .add-wallet-btn {
-
   padding: 22px 38px;
   color: #fff;
   background: linear-gradient(135deg, #6a11cb, #2575fc);
@@ -185,6 +192,7 @@
   box-shadow: 0 6px 12px rgba(37, 117, 252, 0.35);
   position: relative;
   overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .add-wallet-btn::before {
@@ -213,8 +221,6 @@
   box-shadow: 0 4px 8px rgba(37, 117, 252, 0.3);
 }
 
-
-
 .modal {
   display: none;
   position: fixed;
@@ -229,7 +235,6 @@
 }
 
 .modal-content {
-  background: linear-gradient(84.37deg, #5F0A87 2.27%, #A4508B 92.26%);
 
   backdrop-filter: blur(30px) saturate(180%);
   padding: 40px;
@@ -261,9 +266,7 @@
   background: linear-gradient(90deg, #00c6ff, #ff00ff);
 }
 
-
-
-.modal-content input{
+.modal-content input {
   width: 100%;
   padding: 14px;
   margin: 12px 0;
@@ -276,7 +279,7 @@
   transition: 0.3s;
 }
 
-.modal-content input:focus{
+.modal-content input:focus {
   background: rgba(0, 198, 255, 0.1);
   border: 1px solid #00c6ff;
 }
@@ -302,14 +305,18 @@
 }
 
 .modal-content button:hover {
-  background: linear-gradient(90deg,  #00c6ff,  #00c6ff);
-  box-shadow: 0 0 25px  #00c6ff;
+  background: linear-gradient(90deg, #00c6ff, #00c6ff);
+  box-shadow: 0 0 25px #00c6ff;
   transform: scale(1.03);
 }
 
 @keyframes fadeIn {
-  from { background: rgba(0, 0, 0, 0); }
-  to { background: rgba(0, 0, 0, 0.75); }
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+  to {
+    background: rgba(0, 0, 0, 0.75);
+  }
 }
 
 @keyframes slideUp {
@@ -323,7 +330,6 @@
   }
 }
 
-
 .modal select {
   appearance: none;
 
@@ -333,12 +339,11 @@
   border: 1px solid #ccc;
   border-radius: 12px;
 
-  background: linear-gradient(84.37deg, #5F0A87 2.27%, #A4508B 92.26%);
+  background: linear-gradient(84.37deg, #5f0a87 2.27%, #a4508b 92.26%);
   color: #fff;
   font-size: 14px;
   font-family: inherit;
   cursor: pointer;
-
 
   padding-right: 40px;
 
@@ -346,7 +351,7 @@
 }
 
 .modal select:hover {
-  box-shadow: 0 0 8px  #00c6ff;
+  box-shadow: 0 0 8px #00c6ff;
 }
 
 .modal select:focus {
@@ -367,7 +372,89 @@
   padding: 12px;
 }
 
+.userlink {
+  display: none !important    ;
+}
 
-.userlink{
-    display: none !important    ;
+.transactions a{
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.last-tr  {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  background-size: 300% 300%;
+  animation: gradientMove 4s ease infinite, fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  cursor: pointer;
+}
+
+.last-tr ::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: skewX(-25deg);
+  transition: left 0.8s ease;
+}
+
+.last-tr :hover::after {
+  left: 150%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+
+table th,
+table td {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: left;
+}
+table td {
+  padding: 12px;
+  padding-left: 0;
+}
+
+table tr + tr td {
+  border-top: 1px solid rgba(185, 192, 209, 1);
+}
+
+table th {
+  color: rgba(185, 192, 209, 1);
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.transactions a {
+  font-family: Gilroy;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba(0, 71, 255, 1);
+}
+
+.show-all-links {
+  display: block;
+  margin-top: 15px;
+  font-size: 20px;
 }
